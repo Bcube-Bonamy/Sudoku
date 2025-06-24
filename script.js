@@ -1,6 +1,6 @@
 console.log("JS IS RUNNING");
 
-const LIS = document.querySelectorAll("p");
+const LIS = document.querySelectorAll(".Child");
 
 const array1 = [LIS[0], LIS[1], LIS[2], LIS[9], LIS[10], LIS[11], LIS[18], LIS[19], LIS[20]];
 const array2 = [LIS[3], LIS[4], LIS[5], LIS[12], LIS[13], LIS[14], LIS[21], LIS[22], LIS[23]];
@@ -39,41 +39,46 @@ const col9 = [LIS[8], LIS[17], LIS[26], LIS[35], LIS[44], LIS[53], LIS[62], LIS[
 const allCols = [col1, col2, col3, col4, col5, col6, col7, col8, col9];
 
 
+for (let y = 0; y < LIS.length; y++) {
+    const cell = LIS[y].querySelector("p");
+    if (cell.innerText === "0") {
+        let tries = 0;
+        let placed = false;
 
-let x = Math.floor(Math.random() * 9) + 1;
-let y = 0;
-for (y in LIS){
-    if (LIS[y].innerText === "0"){
-        let indexArray = allArrays.findIndex(a => a.includes(LIS[y]));
-        let indexRow = allRows.findIndex(r => r.includes(LIS[y]));
-        let indexCol = allCols.findIndex(c => c.includes(LIS[y]));
+        while (!placed && tries < 20) {
+            let x = Math.floor(Math.random() * 9) + 1;
 
-        let inArray = allArrays[indexArray].some(el => Number(el.innerText) === x);
-        let inRow = allRows[indexRow].some(el => Number(el.innerText) === x);
-        let inCol = allCols[indexCol].some(el => Number(el.innerText) === x);
+            let indexArray = allArrays.findIndex(a => a.includes(LIS[y]));
+            let indexRow = allRows.findIndex(r => r.includes(LIS[y]));
+            let indexCol = allCols.findIndex(c => c.includes(LIS[y]));
 
-        if (inArray === true || inRow === true || inCol === true){
-            y++;
-        }else if (inArray === false && inRow === false && inCol === false){
-            LIS[y].innerText = x;
+            let inArray = allArrays[indexArray].some(el => el.querySelector("p").innerText === String(x));
+            let inRow = allRows[indexRow].some(el => el.querySelector("p").innerText === String(x));
+            let inCol = allCols[indexCol].some(el => el.querySelector("p").innerText === String(x));
+
+            if (!inArray && !inRow && !inCol) {
+                cell.innerText = x;
+                placed = true;
+            }
+
+            tries++;
         }
-        y++;
-
     }
-};
+}
 
-const k = 45;
+
+let k = 45;
 let j = 0;
-for (j; j < 150; j++){
+for (j; j < 81; j++){
     let i = Math.floor(Math.random() * 100) + 1;
     if (i < 50){
     }else if (i >= 50 && k !== 0){
-        LIS[j].innerText = "";
+        LIS[j].querySelector("p").innerText = "";
         k--;
     };
 };
 
-const nonEmpty = Array.from(LIS).filter(p => p.innerText !== "");
+const nonEmpty = Array.from(LIS).filter(p => p.querySelector("p").innerText !== "");
 
 
 
@@ -89,27 +94,28 @@ LIS.forEach(p => {
 
 document.addEventListener("keydown", (e) => {
     if (!selectedCell) return;
-    const val = e.key;
+    const val = Number(e.key);
 
+    let indexArray = allArrays.findIndex(a => a.includes(selectedCell));
+    let indexRow = allRows.findIndex(r => r.includes(selectedCell));
+    let indexCol = allCols.findIndex(c => c.includes(selectedCell));
 
-        let indexArray = allArrays.findIndex(a => a.includes(selectedCell));
-        let indexRow = allRows.findIndex(r => r.includes(selectedCell));
-        let indexCol = allCols.findIndex(c => c.includes(selectedCell));
+    let inArray = allArrays[indexArray].some(el => Number(el.querySelector("p").innerText) === val);
+    let inRow = allRows[indexRow].some(el => Number(el.querySelector("p").innerText) === val);
+    let inCol = allCols[indexCol].some(el => Number(el.querySelector("p").innerText) === val);
 
-        let inArray = allArrays[indexArray].some(selectedCell);
-        let inRow = allRows[indexRow].some(selectedCell);
-        let inCol = allCols[indexCol].some(selectedCell);
+    const isOriginal = nonEmpty.some(k => k.id === selectedCell.id);
 
 
     let safe = Array.from(LIS)
-    if (val >= 1 && val <= 9 && selectedCell.id !== nonEmpty.some(k => {k.id}) && !inArray && !inRow && !inCol) {
-        selectedCell.innerText = val;
+    if (val >= 1 && val <= 9 && !isOriginal && !inArray && !inRow && !inCol) {
+        selectedCell.querySelector("p").innerText = val;
     }
 
     selectedCell.classList.remove("highlight");
     selectedCell = null; 
 
-    const match = Array.from(LIS).filter(p => p.innertText === "0");
+    const match = Array.from(LIS).filter(p => p.innerText === "0");
     if (match.length === 0) {
         alert("Congratulations! You completed the Sudoku puzzle!");
     }
