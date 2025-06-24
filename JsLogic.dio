@@ -1,16 +1,16 @@
 <mxfile host="65bd71144e">
     <diagram id="2ERBqloPEFMsl5_vPyGE" name="Page-1">
-        <mxGraphModel dx="595" dy="489" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="1653" dy="1358" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
                 <mxCell id="2" value="Sudoku" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="790" y="110" width="3640" height="240" as="geometry"/>
+                    <mxGeometry x="790" y="110" width="2570" height="240" as="geometry"/>
                 </mxCell>
                 <mxCell id="3" value="1. Spawn fn" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
                     <mxGeometry x="530" y="250" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="4" value="" style="endArrow=none;dashed=1;html=1;" parent="1" edge="1">
+                <mxCell id="4" value="" style="endArrow=none;dashed=1;html=1;" parent="1" edge="1" source="115">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="630" y="240" as="sourcePoint"/>
                         <mxPoint x="780" y="160" as="targetPoint"/>
@@ -394,7 +394,7 @@
                         <mxPoint x="1890" y="1048" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="113" value="BUT OBVI CHECK IF THE TYPED NUMBER IS SAFE TO PUT THERE, IT IT ISNT ALERT THE USER AND RESET THAT THANG... AND ALSO MAKE SURE THEY ONLY ALTER THE EMPTY SQUARES. u can achieve that my making an array of all initially filled squares and their index in key-value-pair then proatively reference it when deciding if the keydown shii finna push thru." style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                <mxCell id="113" value="BUT OBVI CHECK IF THE TYPED NUMBER IS SAFE TO PUT THERE, IF IT ISNT ALERT THE USER AND RESET THAT THANG... AND ALSO MAKE SURE THEY ONLY ALTER THE EMPTY SQUARES. u can achieve that my making an array of all initially filled squares and their index in key-value-pair then proatively reference it when deciding if the keydown shii finna push thru." style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
                     <mxGeometry x="1680" y="1390" width="240" height="240" as="geometry"/>
                 </mxCell>
                 <mxCell id="114" value="" style="endArrow=classic;startArrow=classic;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="113">
@@ -403,17 +403,44 @@
                         <mxPoint x="2020" y="1278" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="115" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;opacity=30;" vertex="1" parent="1">
-                    <mxGeometry x="1570" y="370" width="1220" height="1790" as="geometry"/>
-                </mxCell>
                 <mxCell id="116" value="" style="endArrow=none;dashed=1;html=1;" edge="1" parent="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="3192.13330078125" y="460" as="sourcePoint"/>
                         <mxPoint x="2880" y="350" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="117" value="&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="117" value="3. gameOver fn" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
                     <mxGeometry x="3130" y="480" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="118" value="" style="endArrow=classic;startArrow=classic;html=1;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="3189.52" y="620" as="sourcePoint"/>
+                        <mxPoint x="3189.52" y="540" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="119" value="const match = Array.from(LIS).filter(LI =&amp;gt; LI.textContent === &quot;0&quot;);" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1705" y="1785" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="120" value="if (!match){gameOver()&lt;span style=&quot;background-color: transparent;&quot;&gt;}&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1705" y="1840" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="121" value="PER MOVE DO THE FF." style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="1745" y="1750" width="160" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="122" value="" style="endArrow=none;dashed=1;html=1;" edge="1" parent="1" target="115">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="630" y="240" as="sourcePoint"/>
+                        <mxPoint x="780" y="160" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="115" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;opacity=30;" vertex="1" parent="1">
+                    <mxGeometry x="1560" y="380" width="1220" height="1790" as="geometry"/>
+                </mxCell>
+                <mxCell id="123" value="Alert user &quot;Congrats! You beat Sudoku&quot;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                    <mxGeometry x="3150" y="620" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="124" value="" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#fff2cc;strokeColor=#d6b656;opacity=30;" vertex="1" parent="1">
+                    <mxGeometry x="3010" y="440" width="300" height="300" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
